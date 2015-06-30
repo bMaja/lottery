@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  </head>
+  <body ng-app="Lottery">
+		
+		<nav class="navbar navbar-inverse">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Lottery</a>
+				</div>
+			</div>
+		</nav>
+		
+		<div class="container" ng-controller="MainController">
+			<div class="row">
+				<div class="col-lg-6 text-center">
+					<h1>Draw three random numbers from {{ bottomNumber }} to {{ topNumber }}</h1>
+					<p>Each number should be drawn in {{ minSeconds }} to {{ maxSeconds }} seconds.</p>
+					<p>The numbers should not repeat each other.</p>
+					<button class="btn btn-primary btn-lg" style="width: 100%" ng-click="firePromise()">START</button>
+				</div>
+			</div>
+			<br />
+			<div class="row">
+				<div class="col-lg-2" ng-repeat="nr in resultNumbers track by $index">
+					<div class="well text-center">
+						<h1>{{ nr.number }}</h1>
+						<p>{{ nr.seconds / 1000 }} seconds</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<script src="app.js"></script>
+  </body>
+</html>
+
